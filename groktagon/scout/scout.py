@@ -183,7 +183,7 @@ class ScoutAgent:
     async def scan_dexscreener(self, session: aiohttp.ClientSession):
         """Escaneia novos pares no DexScreener."""
         pairs = await self.dex.get_new_solana_pairs(session)
-        log.debug(f"DexScreener: {len(pairs)} pares encontrados")
+        log.info(f"DexScreener: {len(pairs)} pares encontrados")
 
         for pair in pairs:
             token_addr = pair.get("baseToken", {}).get("address", "")
@@ -229,7 +229,7 @@ class ScoutAgent:
     async def scan_pumpfun(self, session: aiohttp.ClientSession):
         """Escaneia novos lançamentos no Pump.fun."""
         coins = await self.pump.get_latest_coins(session, limit=50)
-        log.debug(f"Pump.fun: {len(coins)} coins encontrados")
+        log.info(f"Pump.fun: {len(coins)} coins encontrados")
 
         for coin in coins:
             mint = coin.get("mint", "")
