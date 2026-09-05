@@ -1,0 +1,45 @@
+# ============================================================
+# 🔒 SEGURANÇA — NUNCA COMMITAR ESSES ARQUIVOS
+# ============================================================
+
+# Chaves privadas e configurações sensíveis
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+credentials/
+
+# ============================================================
+# Polymarket Bot — Node.js
+# ============================================================
+polymarket-bot/node_modules/
+polymarket-bot/dist/
+polymarket-bot/.env
+polymarket-bot/logs/
+polymarket-bot/*.log
+polymarket-bot/npm-debug.log*
+
+# ============================================================
+# Groktagon — Python / Solana
+# ============================================================
+groktagon/.venv/
+groktagon/venv/
+groktagon/**/__pycache__/
+groktagon/*.pyc
+groktagon/logs/
+groktagon/.env
+
+# ============================================================
+# Sistema
+# ============================================================
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+*.orig
+
+# Logs gerais
+*.log
+nohup.out
