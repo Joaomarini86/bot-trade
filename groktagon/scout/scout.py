@@ -196,7 +196,7 @@ class ScoutAgent:
 
             score, reasons = self._score_token(pair)
 
-            if score >= 50:  # Threshold mínimo para alertar
+            if score >= 30:  # Threshold relaxado para simulação (antes 50)
                 self.seen_tokens.add(token_addr)
                 token_name = pair.get("baseToken", {}).get("name", "???")
                 token_symbol = pair.get("baseToken", {}).get("symbol", "???")

@@ -82,16 +82,16 @@ const CONFIG = {
 
   smartMoney: {
     enabled: true,
-    topN: 20,
+    topN: 50,
     // 🔴 FIXED: Stricter criteria
-    minWinRate: 0.60,  // Up from 0.50 to 60%
-    minPnl: 500,       // Up from 100 to $500
-    minTrades: 30,     // Up from 20 to 30
+    minWinRate: 0.50,  // Relaxed from 60%
+    minPnl: 100,       // Relaxed from 500
+    minTrades: 10,     // Relaxed from 30
 
     // 🔴 NEW: Quality filters
-    minProfitFactor: 1.5,  // Total wins / total losses >= 1.5x
-    minConsistencyScore: 0.7,  // Recent performance score
-    maxSingleTradeExposure: 0.3,  // Max 30% of PnL from one trade
+    minProfitFactor: 1.1,  // Relaxed from 1.5
+    minConsistencyScore: 0.4,  // Relaxed from 0.7
+    maxSingleTradeExposure: 0.5,  // Relaxed from 0.3
     checkLastNTrades: 10,  // Analyze last 10 trades for consistency
 
     sizeScale: 0.1,
