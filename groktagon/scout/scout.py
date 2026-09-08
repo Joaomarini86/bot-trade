@@ -231,48 +231,6 @@ class ScoutAgent:
         # A API gratuita do Pump.fun (Heroku) foi desativada pelos desenvolvedores.
         # Estamos dependendo do DexScreener que já indexa moedas do Pump.fun.
         pass
-                continue
-
-            # Pump.fun: todos são novos por definição, filtro por market_cap
-            market_cap = coin.get("usd_market_cap", 0) or 0
-            if market_cap < 5000:  # Muito pequeno ainda
-                continue
-
-            # Verifica se está "bonding" (ainda em fase de bonding curve)
-            is_complete = coin.get("complete", False)
-
-            self.seen_tokens.add(mint)
-            token_name = coin.get("name", "???")
-            token_symbol = coin.get("symbol", "???")
-
-            alert = {
-                "source": "pumpfun",
-                "token_address": mint,
-                "token_name": token_name,
-                "token_symbol": token_symbol,
-                "pair_address": mint,
-                "dex": "pump.fun",
-                "score": 60 if not is_complete else 40,
-                "reasons": [
-                    f"🔫 Pump.fun {'(bonding curve)' if not is_complete else '(migrado)'}",
-                    f"💰 Market Cap: ${market_cap:,.0f}",
-                    f"🖼️ {coin.get('description', '')[:50]}",
-                ],
-                "liquidity_usd": market_cap * 0.1,  # Estimativa
-                "price_usd": str(coin.get("usd_market_cap", 0) / max(coin.get("total_supply", 1), 1)),
-                "detected_at": datetime.utcnow().isoformat(),
-                "raw": coin,
-            }
-
-            log.info(
-                f"\n{'='*50}\n"
-                f"🚀 PUMP.FUN: {token_name} ({token_symbol})\n"
-                f"   Mint: {mint}\n"
-                f"   Market Cap: ${market_cap:,.0f}\n"
-                f"{'='*50}"
-            )
-            await self._emit_alert(alert)
-
     async def run(self, interval_seconds: int = 15):
         """Loop principal do Scout."""
         log.info(f"🔭 SCOUT iniciado | Intervalo: {interval_seconds}s | DRY_RUN: {cfg.DRY_RUN}")
