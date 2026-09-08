@@ -228,12 +228,9 @@ class ScoutAgent:
 
     async def scan_pumpfun(self, session: aiohttp.ClientSession):
         """Escaneia novos lançamentos no Pump.fun."""
-        coins = await self.pump.get_latest_coins(session, limit=50)
-        log.info(f"Pump.fun: {len(coins)} coins encontrados")
-
-        for coin in coins:
-            mint = coin.get("mint", "")
-            if not mint or mint in self.seen_tokens:
+        # A API gratuita do Pump.fun (Heroku) foi desativada pelos desenvolvedores.
+        # Estamos dependendo do DexScreener que já indexa moedas do Pump.fun.
+        pass
                 continue
 
             # Pump.fun: todos são novos por definição, filtro por market_cap
