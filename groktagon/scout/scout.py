@@ -50,7 +50,7 @@ class DexScreenerClient:
 
     async def get_new_solana_pairs(self, session: aiohttp.ClientSession) -> list[dict]:
         """Busca os pares mais recentes na Solana (últimas horas)."""
-        url = f"{self.BASE}/dex/pairs/solana/new"
+        url = f"{self.BASE}/dex/search?q=solana"
         try:
             async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as r:
                 if r.status == 200:
