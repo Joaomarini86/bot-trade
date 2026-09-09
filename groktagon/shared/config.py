@@ -55,16 +55,12 @@ class Config:
             ]
 
     # ---- Filtros de Segurança (RISK Agent) ----
-    # Máximo de % do supply nas top 10 wallets
-    MAX_TOP10_SUPPLY_PCT: float = 30.0
-    # Mínimo de liquidez em USD para considerar
-    MIN_LIQUIDITY_USD: float = 5000.0
-    # Exige que Mint Authority esteja revogada
-    REQUIRE_MINT_REVOKED: bool = True
-    # Exige que liquidez esteja queimada/trancada
-    REQUIRE_LP_BURNED: bool = False  # False no início (mais oportunidades)
-    # Score mínimo no RugCheck (0-100)
-    MIN_RUGCHECK_SCORE: int = 50
+    # AFROUXADO PARA SIMULAÇÃO: Deixando passar moedas lixo para ver o bot operar
+    MAX_TOP10_SUPPLY_PCT: float = 100.0
+    MIN_LIQUIDITY_USD: float = 1000.0
+    REQUIRE_MINT_REVOKED: bool = False
+    REQUIRE_LP_BURNED: bool = False
+    MIN_RUGCHECK_SCORE: int = 0
 
     # ---- Stop Loss ----
     # Vender TUDO se cair X% do preço de entrada
