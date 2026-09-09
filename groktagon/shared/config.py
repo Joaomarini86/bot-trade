@@ -56,7 +56,7 @@ class Config:
 
     # ---- Filtros de Segurança (RISK Agent) ----
     # AFROUXADO PARA SIMULAÇÃO: Deixando passar moedas lixo para ver o bot operar
-    MAX_TOP10_SUPPLY_PCT: float = 100.0
+    MAX_TOP10_SUPPLY_PCT: float = 101.0
     MIN_LIQUIDITY_USD: float = 1000.0
     REQUIRE_MINT_REVOKED: bool = False
     REQUIRE_LP_BURNED: bool = False
