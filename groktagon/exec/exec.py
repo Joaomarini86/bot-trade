@@ -275,6 +275,8 @@ class ExecAgent:
             "outputMint": output_mint,
             "amount": amount,
             "slippageBps": slippage_bps,
+            "restrictIntermediateTokens": "true",
+            "strict": "false" # Obriga o Jupiter a aceitar tokens não listados oficialmente
         }
         url = f"{JUPITER_API}/quote"
         try:
