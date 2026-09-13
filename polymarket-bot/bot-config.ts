@@ -109,11 +109,11 @@ const CONFIG = {
 
   arbitrage: {
     enabled: true,
-    // 🔴 FIXED: Higher profit threshold to account for gas fees
-    profitThreshold: 0.01,  // Up from 0.5% to 1%
-    minTradeSize: 20,  // Up from 5 to reduce gas impact
-    maxTradeSize: 100,  // Up from 50
-    minVolume24h: 5000,
+    // AFROUXADO PARA SIMULAÇÃO: Limites irrisórios para forçar trades
+    profitThreshold: 0.0001,  // Quase zero, vai achar disparidade em todo lugar
+    minTradeSize: 5,  
+    maxTradeSize: 100,  
+    minVolume24h: 100,
     autoExecute: true,
     enableRebalancer: true,
 
