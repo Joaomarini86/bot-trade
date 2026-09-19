@@ -42,7 +42,7 @@ SOL_MINT = "So11111111111111111111111111111111111111112"
 # USDC na Solana
 USDC_MINT = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
-JUPITER_API = "https://quote-api.jup.ag/v6"
+JUPITER_API = "https://api.jup.ag/swap/v1"
 
 
 # ============================================================
